@@ -1,0 +1,5 @@
+FROM ubuntu:20.04
+RUN DEBIAN_FRONTEND=noninteractive apt update && apt install -y nginx
+RUN rm -rf /var/www/html/*
+COPY index.html /var/www/html/
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
